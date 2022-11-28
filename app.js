@@ -10,6 +10,7 @@ app.use(express.static("public"));
 const items = ["Buy Food", "Cook Food", "Eat Food"];
 const newItems = [];
 
+
 app.get("/", function (req, res) {
   const today = new Date();
   const optoins = {
@@ -19,7 +20,7 @@ app.get("/", function (req, res) {
   }
   const day = today.toLocaleDateString('en-US', optoins);
 
-res.render("list", { listTitle: day, newListItems: items });
+res.render("index", { listTitle: day, newListItems: items });
 });
 
 app.post('/', function(req, res){
@@ -38,7 +39,7 @@ app.post('/', function(req, res){
 
 
 app.get("/work", function(req, res){
-    res.render("list", { listTitle: "Work", newListItems: newItems });
+    res.render("index", { listTitle: "Work", newListItems: newItems });
 });
 
 app.listen(3000, function () {
